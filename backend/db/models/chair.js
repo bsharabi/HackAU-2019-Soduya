@@ -2,6 +2,9 @@ const sequelize = require('../sequalize');
 const Sequelize = require('sequelize');
 
 const account = sequelize.define('chair', {
+    chair_id: {
+        type: Sequelize.INTEGER,
+    },
     university_name: {
         type: Sequelize.STRING,
     },

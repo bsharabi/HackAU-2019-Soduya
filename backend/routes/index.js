@@ -18,6 +18,7 @@ router.post('/chair', async (req, res) => {
     const chair = req.body.chair;
 
     Chair.create({
+        "chair_id":req.body.chair_id,
        "university_name":req.body.university_name,
        "floor":req.body.floor,
        "desk":req.body.desk
