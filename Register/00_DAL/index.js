@@ -10,7 +10,7 @@
 //     let connectionConfig = {
 //         "host": "localhost",
 //         "user": "root",
-//         "database": "cars"
+//         "database": "library"
 //     };
 
 //     //here we asiggn to the global var - the open connection that we created
