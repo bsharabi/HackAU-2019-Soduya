@@ -101,16 +101,11 @@ function getChair(successCallBack, failCallBack) {
     dal.runQuery(query,successCallBack,failCallBack);
 }
 
-function addChair(newCar,successCallBack, failCallBack) {
-    let query="INSERT INTO `vehicles` VALUES " +
-    `('${newCar.veh_reg_no}', '${newCar.category}', '${newCar.brand}', '${newCar.desc}', ${newCar.daily_rate})`;
+function addChair(newChair,successCallBack, failCallBack) {
+    let query="INSERT INTO `chair` VALUES " +
+    `('${newChair.Chair_ID}', '${newChair.Floor}', '${newChair.brand}', '${newChair.Table}', ${newChair.Free_chair})`;
     dal.runQuery(query,successCallBack,failCallBack);
 }
-
-
-
-
-
 
 
 //--------------------------------------------------------------------------------------
