@@ -14,4 +14,18 @@ router.get('/', async (req, res) => {
     // })
 });
 
+router.post('/chair', async (req, res) => {
+    const chair = req.body.chair;
+
+    Chair.create({
+       "university_name":req.body.university_name,
+       "floor":req.body.floor,
+       "desk":req.body.desk
+    }).then(chairs => {
+        res.json(chairs)
+    }).catch(err => {
+        res.status(400).send(`error create chair: ${err.message}`)
+    })
+});
+
 module.exports = router;
