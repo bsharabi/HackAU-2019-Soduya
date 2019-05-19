@@ -6,8 +6,10 @@ const Chair = require('../db/models/chair');
 router.get('/', async (req, res) => {
     Chair.findAll({
         where: {
+
         }
     }).then(chairs => {
+        res.json(chairs)
     })
 });
 
