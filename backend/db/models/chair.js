@@ -1,17 +1,14 @@
 const sequelize = require('../sequalize');
 const Sequelize = require('sequelize');
 
-const account = sequelize.define('account', {
-    user_id: {
+const account = sequelize.define('chair', {
+    university_name: {
         type: Sequelize.STRING,
     },
-    first_name: {
+    floor: {
         type: Sequelize.STRING,
     },
-    last_name: {
-        type: Sequelize.STRING,
-    },
-    email: {
+    desk: {
         type: Sequelize.STRING,
     },
     created_at: {

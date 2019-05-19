@@ -1,8 +1,8 @@
 {
     "database": {
-        "host": "localhost",
+        "host": "10.9.4.19",
         "user": "root",
-        "database": "sys",
-        "password": "aaa123456"
+        "database": "hackau",
+        "password": "159874"
     }
 }

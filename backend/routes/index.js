@@ -1,10 +1,14 @@
 const express = require('express');
+const _ = require('lodash');
 const router = express.Router();
+const Chair = require('../db/models/chair');
 
-const login = require('./login');
-const account = require('./account');
-
-router.use('/login', login);
-router.use('/account', account);
+router.get('/', async (req, res) => {
+    Chair.findAll({
+        where: {
+        }
+    }).then(chairs => {
+    })
+});
 
 module.exports = router;
