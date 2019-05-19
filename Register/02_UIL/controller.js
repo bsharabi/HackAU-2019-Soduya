@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 const bll = require('./../01_BLL/index');
 
 const app = express();
@@ -11,7 +11,7 @@ const app = express();
 //and parses it to json format
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use(express.static(__dirname + "/views"));
 
 // Use middlewares (app level - not controller level):
