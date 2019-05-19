@@ -4,13 +4,14 @@ const router = express.Router();
 const Chair = require('../db/models/chair');
 
 router.get('/', async (req, res) => {
-    Chair.findAll({
-        where: {
-
-        }
-    }).then(chairs => {
-        res.json(chairs)
-    })
+    const chairs = { a:'a'}
+    res.json(chairs)
+    // Chair.findAll({
+    //     where: {
+    //     }
+    // }).then(chairs => {
+    //     res.json(chairs)
+    // })
 });
 
 module.exports = router;

@@ -1,13 +1,12 @@
 const express = require('express')
-const consola = require('consola')
 const app = express()
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const routes = require('./routes')
 
-const host = process.env.HOST || '0.0.0.0';
-const port = process.env.PORT || 90;
+const host = 'localhost';
+const port = 4200;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -16,8 +15,4 @@ app.use(routes);
 
 // Listen the server
 app.listen(port, host)
-consola.ready({
-  message: `Server listening on http://${host}:${port}`,
-  badge: true
-})
-
+console.log(`Server listening on http://${host}:${port}`)
