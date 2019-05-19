@@ -21,11 +21,11 @@ function dropTableChair() {
 
 function createTableChair() {
     let query = "CREATE TABLE `chair` ("+
-    "`Chair_ID`  VARCHAR(100)            NOT NULL,"+
-    "`University_name`                  NOT NULL,"+
-    "`Floor`        VARCHAR(10)          NOT NULL,"+
-    "`Table`        VARCHAR(10)          NOT NULL,"+   
-    "`Free_chair`        BOOLAEN(false)         NOT NULL,"+
+    "`Chair_ID`  int                     NOT NULL auto increment(1,1),"+
+    "`University_name` VARCHAR(100)      NOT NULL,"+
+    "`Floor`            int              NOT NULL,"+
+    "`Table`        int                  NOT NULL,"+   
+    "`Free_chair`   boolean              NOT NULL DEFAULT 'false'"+
     "PRIMARY KEY (`Chair_ID`) );";
     dal.runQuery(query,
         (res, extra) => { insertChair()},
