@@ -6,85 +6,113 @@ function connectDb() {
 }
 
 function initDb() {
-    dropTableCars();
+    dropTableChair();
 }
 
 
-function dropTableCars() {
-    let query = "DROP TABLE IF EXISTS `vehicles`";
+function dropTableChair() {
+    let query = "DROP TABLE IF EXISTS `chair`";
     
     dal.runQuery(query,
-        (res, extra) => { createTableCars()},
+        (res, extra) => { createTableChair()},
         (err) => { console.log("sorry err", err) }
     );
 }
 
-function createTableCars() {
-    let query = "CREATE TABLE `vehicles` ("+
-    "`veh_reg_no`  VARCHAR(8)            NOT NULL,"+
-    "`category`    ENUM('car', 'truck')  NOT NULL DEFAULT 'car',"+
-    "`brand`       VARCHAR(30)           NOT NULL DEFAULT '',"+
-    "`desc`        VARCHAR(256)          NOT NULL DEFAULT '',"+
-    "`daily_rate`  DECIMAL(6,2)          NOT NULL DEFAULT 9999.99,"+
-    "PRIMARY KEY (`veh_reg_no`) );";
-    
+function createTableChair() {
+    let query = "CREATE TABLE `chair` ("+
+    "`Chair_ID`  int                     NOT NULL auto increment(1,1),"+
+    "`University_name` VARCHAR(100)      NOT NULL,"+
+    "`Floor`            int              NOT NULL,"+
+    "`Table`        int                  NOT NULL,"+   
+    "`Free_chair`   boolean              NOT NULL DEFAULT 'false'"+
+    "PRIMARY KEY (`Chair_ID`) );";
     dal.runQuery(query,
-        (res, extra) => { insertCars()},
+        (res, extra) => { insertChair()},
         (err) => { console.log("sorry err", err) }
     );
 }
 
-function insertCars() {
-    let query = "INSERT INTO `vehicles` VALUES " +
-    `('SBA1111A', 'car', 'NISSAN SUNNY 1.6L', '4 Door Saloon, Automatic', 99.99),
-     ('SBB2222B','car', 'TOYOTA ALTIS 1.6L', '4 Door Saloon, Automatic', 99.99),
-     ('SBC3333C', 'car', 'HONDA CIVIC 1.8L',  '4 Door Saloon, Automatic', 119.99),
-     ('GA5555E', 'truck', 'NISSAN CABSTAR 3.0L',  'Lorry, Manual ', 89.99),
-     ('GA6666F', 'truck', 'OPEL COMBO 1.6L',  'Van, Manual', 69.99);`;
+function insertChair() {
+    let query = "INSERT INTO `chair` VALUES " +
+//         uni ariel, floor no1
+    `('001', 'Ariel', '01', '01'),
+     ('002','Ariel', '01', '01'),
+     ('003', 'Ariel', '01',  '01'),
+     ('004', 'Ariel', '01',  '01'),
+     ('005', 'Ariel', '01',  '01'),
+
+     ('001', 'Ariel', '01', '02'),
+     ('002','Ariel', '01', '02'),
+     ('003', 'Ariel', '01',  '02'),
+     ('004', 'Ariel', '01',  '02'),
+     ('005', 'Ariel', '01',  '02'),
+
+     ('001', 'Ariel', '01', '03'),
+     ('002','Ariel', '01', '03'),
+     ('003', 'Ariel', '01',  '03'),
+     ('004', 'Ariel', '01',  '03'),
+     ('005', 'Ariel', '01',  '03'),
+
+//  uni ariel, floor no2
+    ('001', 'Ariel', '02', '01'),
+     ('002','Ariel', '02', '01'),
+     ('003', 'Ariel', '02',  '01'),
+     ('004', 'Ariel', '02',  '01'),
+     ('005', 'Ariel', '02',  '01'),
+
+     ('001', 'Ariel', '02', '02'),
+     ('002','Ariel', '02', '02'),
+     ('003', 'Ariel', '02',  '02'),
+     ('004', 'Ariel', '02',  '02'),
+     ('005', 'Ariel', '02',  '02'),
+
+     ('001', 'Ariel', '02', '03'),
+     ('002','Ariel', '02', '03'),
+     ('003', 'Ariel', '02',  '03'),
+     ('004', 'Ariel', '02',  '03'),
+     ('005', 'Ariel', '02',  '03'),
+//  uni ariel, floor no3
+    ('001', 'Ariel', '03', '01'),
+     ('002','Ariel', '03', '01'),
+     ('003', 'Ariel', '03',  '01'),
+     ('004', 'Ariel', '03',  '01'),
+     ('005', 'Ariel', '03',  '01'),
+
+     ('001', 'Ariel', '03', '02'),
+     ('002','Ariel', '03', '02'),
+     ('003', 'Ariel', '03',  '02'),
+     ('004', 'Ariel', '03',  '02'),
+     ('005', 'Ariel', '03',  '02'),
+
+     ('001', 'Ariel', '03', '03'),
+     ('002','Ariel', '03', '03'),
+     ('003', 'Ariel', '03',  '03'),
+     ('004', 'Ariel', '03',  '03'),
+     ('005', 'Ariel', '03',  '03');`;
 
     dal.runQuery(query,
         (res, extra) => { console.log(res, extra) },
         (err) => { console.log("sorry err", err) }
     );
 }
-
-
-
-//------------------------CRUD THAT IS USED DIRECT FROM UIL-----------------------------
-function getCars(successCallBack, failCallBack) {
-    let query="SELECT * FROM `vehicles`;";
+function getChair(successCallBack, failCallBack) {
+    let query="SELECT * FROM `Chair`;";
     dal.runQuery(query,successCallBack,failCallBack);
 }
 
-function addCar(newCar,successCallBack, failCallBack) {
-    let query="INSERT INTO `vehicles` VALUES " +
-    `('${newCar.veh_reg_no}', '${newCar.category}', '${newCar.brand}', '${newCar.desc}', ${newCar.daily_rate})`;
+function addChair(newChair,successCallBack, failCallBack) {
+    let query="INSERT INTO `chair` VALUES " +
+    `('${newChair.Chair_ID}', '${newChair.Floor}', '${newChair.brand}', '${newChair.Table}', ${newChair.Free_chair})`;
     dal.runQuery(query,successCallBack,failCallBack);
 }
-
-function deleteCar(carId,successCallBack, failCallBack) {
-    let query="DELETE FROM `vehicles` "+ 
-              `WHERE veh_reg_no= '${carId}'`;
-    
-    dal.runQuery(query,successCallBack,failCallBack);
-}
-
-
-function editCar(carId,updatedCar,successCallBack, failCallBack) {
-    let query="UPDATE `vehicles` "+ 
-    `SET daily_rate = ${updatedCar.daily_rate} WHERE veh_reg_no = '${carId}';`
-    
-    dal.runQuery(query,successCallBack,failCallBack);
-}
-
 
 
 //--------------------------------------------------------------------------------------
 module.exports = {
     "connectDb": connectDb,
     "initDb": initDb,
-    "getCars":getCars,
-    "addCar":addCar,
-    "deleteCar":deleteCar,
-    "editCar":editCar
+    "getChair":getChair,
+    "addChair":addChair
+    
 }
