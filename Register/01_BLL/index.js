@@ -25,8 +25,8 @@ function createTableChair() {
     "`University_name`                  NOT NULL,"+
     "`Floor`        VARCHAR(10)          NOT NULL,"+
     "`Table`        VARCHAR(10)          NOT NULL,"+   
+    "`Free_chair`        BOOLAEN(false)         NOT NULL,"+
     "PRIMARY KEY (`Chair_ID`) );";
-    
     dal.runQuery(query,
         (res, extra) => { insertChair()},
         (err) => { console.log("sorry err", err) }
@@ -96,31 +96,20 @@ function insertChair() {
         (err) => { console.log("sorry err", err) }
     );
 }
-function getChairs(successCallBack, failCallBack) {
-    let query="SELECT * FROM `Chairs`;";
+function getChair(successCallBack, failCallBack) {
+    let query="SELECT * FROM `Chair`;";
     dal.runQuery(query,successCallBack,failCallBack);
 }
 
-function addCar(newCar,successCallBack, failCallBack) {
+function addChair(newCar,successCallBack, failCallBack) {
     let query="INSERT INTO `vehicles` VALUES " +
     `('${newCar.veh_reg_no}', '${newCar.category}', '${newCar.brand}', '${newCar.desc}', ${newCar.daily_rate})`;
     dal.runQuery(query,successCallBack,failCallBack);
 }
 
-function deleteCar(carId,successCallBack, failCallBack) {
-    let query="DELETE FROM `vehicles` "+ 
-              `WHERE veh_reg_no= '${carId}'`;
-    
-    dal.runQuery(query,successCallBack,failCallBack);
-}
 
 
-function editCar(carId,updatedCar,successCallBack, failCallBack) {
-    let query="UPDATE `vehicles` "+ 
-    `SET daily_rate = ${updatedCar.daily_rate} WHERE veh_reg_no = '${carId}';`
-    
-    dal.runQuery(query,successCallBack,failCallBack);
-}
+
 
 
 
@@ -128,8 +117,7 @@ function editCar(carId,updatedCar,successCallBack, failCallBack) {
 module.exports = {
     "connectDb": connectDb,
     "initDb": initDb,
-    "getCars":getCars,
-    "addCar":addCar,
-    "deleteCar":deleteCar,
-    "editCar":editCar
+    "getChair":getChair,
+    "addChair":addChair
+    
 }
