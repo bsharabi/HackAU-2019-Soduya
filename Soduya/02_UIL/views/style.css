@@ -1,0 +1,145 @@
+
+body{
+  background-color:#f0f0f0;
+  font-family:helvetica;
+}
+#bg{
+  position:relative;
+  top:20px;
+  height:900px;
+  width:90%;
+  background:url('3eP9Z4O.png') center no-repeat;
+  background-size:cover;
+  margin-left:auto;
+  margin-right:auto; 
+  border:#fff 15px solid;
+  
+}
+
+.module{
+  direction: rtl;
+  height:10%;
+  width:95%;
+  padding-top:40px;
+  padding-right:10px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 5%;
+  border-radius:8px;
+  background:#6E5886;
+  -webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);        
+  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+  
+}
+#img{
+  height:40%;
+  width:95%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 7%;
+  border-radius:7px;
+  -webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);        
+  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+  background-image:url("library1.jpg");
+}
+button{
+  background: gray;
+}
+.button{
+  height:60%;
+  width:10%;
+  border-radius:3px;
+  border:rgba(0,0,0,.3) 0px solid;
+  box-sizing:border-box;
+  padding:10px;
+  margin-bottom:30px;
+  background:#F1F2F1;
+  color:black;
+  font-weight:bold;
+  font-size: 12pt;
+  transition:background .4s;
+  cursor:pointer;
+}
+
+.button:hover{
+  background:#cec7d8;
+}
+
+.tab{
+  height:60%;
+  width:22%;
+  border-radius:3px;
+  border:rgba(0,0,0,.3) 0px solid;
+  box-sizing:border-box;
+  padding:10px;
+  margin-bottom:30px;
+  background: #F1F2F1;
+  color:blac;
+  font-weight:bold;
+  font-size: 12pt;
+  transition:background .4s;
+  cursor:pointer;
+  direction: rtl;
+}
+
+.tab:hover{
+  background:#cec7d8;
+}
+#div1{
+  position: relative;
+ margin-left: 12%;
+ margin-top: 7%;
+ width: 50%;
+  
+  background: #6E5886;
+}
+#div1:hover{
+  background:#cec7d8;
+}
+.room {
+  position: relative;
+  border: 5px solid #6E5886;
+  width: 55%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 10%;
+
+}
+
+.grid {
+  display: flex;
+  justify-content:center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 150px;
+  background-color: #6E5886;
+  margin: 20px;
+}
+
+.container.clear {
+  background-color: unset;
+  display: unset;
+}
+
+button {
+  display: block;
+  width: 70px;
+  height: 70px;
+}
+
+.chairs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.table {
+  height: 100%;
+  width: 150px;
+  background-color:#cec7d8;
+}

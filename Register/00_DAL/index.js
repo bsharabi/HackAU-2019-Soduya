@@ -32,7 +32,6 @@ function connect() {
         "database" : 'heroku_1165074c20af055',
     };
 
-
     //here we asiggn to the global var - the open connection that we created
     connection = mySql.createConnection(connectionConfig);
     connection.connect(function(err) {              // The server is either down
